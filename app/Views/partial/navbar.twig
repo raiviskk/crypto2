@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Pairs</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <!-- Include other CSS files or CDN links if necessary -->
+
+    <style>
+        /* Style the navigation bar container */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px; /* Increased left and right padding */
+            display: flex;
+            flex-wrap: wrap; /* Allow elements to wrap to the next line */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Style the logo link */
+        .logo {
+            font-size: 24px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Style the search form container */
+        .search-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow elements to wrap to the next line */
+            align-items: center;
+        }
+
+        /* Style the label for the search input */
+        label {
+            font-size: 16px;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        /* Style the search input */
+        input[type="text"],
+        input[type="date"] {
+            padding: 8px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        /* Style the search button */
+        button[type="submit"] {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style the menu */
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow elements to wrap to the next line */
+            align-items: center;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        /* Style the menu links */
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Add a hover effect to the menu links */
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style the flag buttons */
+        .flag-buttons {
+            display: flex;
+            flex-wrap: wrap; /* Allow elements to wrap to the next line */
+        }
+
+        .flag-button {
+            background-color: #333;
+            border: none;
+            font-size: 24px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        /* Style the London time and weather */
+        #london-time {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        #weather {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="flag-buttons">
+        <button class="flag-button caret-amber-400 text-9xl" onclick="location.href='/'">Home</button>
+    </div>
+    <div class="search-container">
+        <form action="/search" method="get">
+            <label for="what">Search for:</label>
+            <input type="text" id="what" name="what" placeholder="Enter your search...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div id="london-time">
+        London Time: {{ londonTime.format('H:i') }}
+    </div>
+
+    <div id="weather">
+        Weather in London: {{ weatherData.weather[0].description }}
+        Temperature: {{ weatherData.main.temp_celsius }}°C
+    </div>
+</nav>
+</body>
+</html>
